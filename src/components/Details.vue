@@ -1,5 +1,7 @@
+<!----------------------------------------html--------------------------------------------------------------------------------------------------------->
 <template>
   <div class="details container">
+    <!----------------------------------------Affichage détails restaurant--------------------------------------------->
     <router-link class="btn" style="border-color: #555; color: #555" to="/">Retour</router-link>
     <h1 class="page-header">{{name}}
       <span class="pull-right">
@@ -24,6 +26,7 @@
   </div>
 </template>
 
+<!----------------------------------------Script--------------------------------------------------------------------------------------------------------->
 <script>
   export default {
     name: 'Details',
@@ -49,6 +52,7 @@
       }
     },
     methods: {
+      // ----------------------------------Récupération d'un restaurants avec son id depuis le serveur------------------
       fetchRestaurant(id) {
         this.$http.get('http://localhost:8080/api/restaurants/'+id)
           .then(function(response) {
@@ -64,6 +68,7 @@
             this.borough = this.r.borough;
           });
         },
+      // ----------------------------------Suppression d'un restaurant--------------------------------------------------
       supprimerRestaurant(id) {
         this.$http.delete('http://localhost:8080/api/restaurants/'+id)
           .then(function (response) {
@@ -77,7 +82,7 @@
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+<!----------------------------------------Style--------------------------------------------------------------------------------------------------------->
 <style scoped>
 
 </style>

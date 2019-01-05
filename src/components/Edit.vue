@@ -1,5 +1,7 @@
+<!----------------------------------------html------------------------------------------------------------------------------------------------------->
 <template>
   <div class="edit container">
+    <!----------------------------------------Formulaire modification restaurant--------------------------------------->
     <Alert v-if="alert" v-bind:message="alert"></Alert>
     <router-link class="btn" style="border-color: #555; color: #555" v-bind:to="'/restaurants/'+r._id">Retour</router-link>
     <h1 class="page-header">Modifier un restaurant</h1>
@@ -48,6 +50,7 @@
   </div>
 </template>
 
+<!----------------------------------------Script-------------------------------------------------------------------------------------------------------->
 <script>
   import Alert from './Alert'
   export default {
@@ -75,6 +78,7 @@
       }
     },
     methods: {
+      // ----------------------------------Récupération d'un restaurants avec son id depuis le serveur------------------
       fetchRestaurant(id) {
         this.$http.get('http://localhost:8080/api/restaurants/'+id)
           .then(function(response) {
@@ -89,6 +93,7 @@
             this.borough = this.r.borough;
           });
       },
+      // ----------------------------------Modification d'un restaurant-------------------------------------------------
       modifierRestaurant(event) {
         if(!this.nom || !this.cuisine){
           this.alert = "Veuillez remplir les champs obligatoires";
@@ -135,7 +140,7 @@
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+<!----------------------------------------Style--------------------------------------------------------------------------------------------------------->
 <style scoped>
 
 </style>

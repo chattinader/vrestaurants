@@ -1,16 +1,16 @@
+<!----------------------------------------html------------------------------------------------------------------------------------------------------->
 <template>
     <div class="restaurants container">
-      <!----------------------------------------Recherche d'un restaurant par le nom---------------------------------------->
-
-        <Alert v-if="alert" v-bind:message="alert"/>
-        <h1 class="page-header">Gestionnaire de restaurants</h1>
+      <Alert v-if="alert" v-bind:message="alert"/>
+      <h1 class="page-header">Gestionnaire de restaurants</h1>
+      <!----------------------------------------Recherche d'un restaurant par le nom----------------------------------->
       <input type="text" class="form-control form-control-dark w-100"
              v-on:input="fetchRestaurants()"
              v-model="nomRecherche"
              placeholder="Rechercher"><br>
         <h4 style="text-align: center">Nombre de restaurants: {{nbRestaurants}}</h4>
 
-        <!----------------------------------------Barre de taille du tableau---------------------------------------->
+        <!----------------------------------------Barre de taille du tableau------------------------------------------->
         <input class="range" type="range"
                v-on:input="fetchRestaurants()"
                value=10 min=2 max=100
@@ -18,8 +18,8 @@
         >
         <p style="text-align: center">Affichage par {{this.pagesize}}</p><br>
 
-        <!----------------------------------------Boutons de selection des pages---------------------------------------->
-       <div style="padding-bottom: 10px; text-align: center;">
+        <!----------------------------------------Boutons de selection des pages--------------------------------------->
+        <div style="padding-bottom: 10px; text-align: center;">
         <button class="btn" style="border-color: #555; color: #555"
                 v-bind:class="{invisible: this.page === 0}"
                 v-on:click="premierePage()"
@@ -62,7 +62,7 @@
                 v-on:click="dernierePage()"
         > ►▌ </button>
        </div>
-        <!----------------------------------------Tableau des restaurants---------------------------------------->
+        <!----------------------------------------Tableau des restaurants---------------------------------------------->
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -82,11 +82,7 @@
     </div>
 </template>
 
-
-
-
-
-
+<!----------------------------------------Script-------------------------------------------------------------------------------------------------------->
 <script>
   import Alert from './Alert';
     export default {
@@ -107,7 +103,7 @@
             }
         },
         methods: {
-            // ----------------------------------Récupération de la liste restaurants depuis le serveur----------------------------------
+            // ----------------------------------Récupération de la liste restaurants depuis le serveur-----------------
             fetchRestaurants() {
                 this.$http.get('http://localhost:8080/api/restaurants?page='
                 + this.page + "&pagesize="
@@ -118,31 +114,31 @@
                         this.nbPagesDeResultats = Math.ceil(this.nbRestaurants/this.pagesize);
                     });
             },
-            // ----------------------------------Appel de la dernière page----------------------------------
+            // ----------------------------------Appel de la dernière page----------------------------------------------
             premierePage() {
                 this.page = 0;
                 this.fetchRestaurants();
             },
 
-            // ----------------------------------Appel de la page suivante----------------------------------
+            // ----------------------------------Appel de la page suivante----------------------------------------------
             pageSuivante() {
                 this.page++;
                 this.fetchRestaurants();
             },
 
-            // ----------------------------------Appel de la page précédente----------------------------------
+            // ----------------------------------Appel de la page précédente--------------------------------------------
             pagePrecedente() {
                 this.page--;
                 this.fetchRestaurants();
             },
 
-            // ----------------------------------Appel de la dernière page----------------------------------
+            // ----------------------------------Appel de la dernière page----------------------------------------------
             dernierePage() {
                 this.page = (this.nbPagesDeResultats - 1);
                 this.fetchRestaurants();
             },
 
-            // ----------------------------------Appel de la page demandée par les boutons présents (Cas de +/- 3 pages)----------------------------------
+            // ----------------------------------Boutons sélection page-------------------------------------------------
             selectionPage(n) {
                 this.page = this.page + n;
                 this.fetchRestaurants();
@@ -160,22 +156,9 @@
     }
 </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+<!----------------------------------------Style--------------------------------------------------------------------------------------------------------->
 <style scoped>
-  /* --------------------------------------Style de l'input range-------------------------------------- */
+  /* --------------------------------------Style de l'input range---------------------------------------------------- */
 .range {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -217,7 +200,7 @@
   border: 1px solid #777;
 }
 
-/* --------------------------------------Style des boutons cachés-------------------------------------- */
+/* --------------------------------------Style des boutons cachés---------------------------------------------------- */
 .invisible {
     cursor: not-allowed;
     pointer-events: none;
@@ -230,9 +213,4 @@
     margin: 0px 0px;
     */
 }
-
-
-
-
-
 </style>

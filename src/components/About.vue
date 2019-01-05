@@ -1,5 +1,7 @@
+<!----------------------------------------html------------------------------------------------------------------------------------------------------->
 <template>
   <div class="about container">
+    <!----------------------------------------A propos----------------------------------------------------------------->
     <h1 class="page-header">A propos</h1>
     <p><b>Gestionnaire de restaurants</b></p>
     <p>Ce site contient une liste de restaurants présentés sous forme d'un tableau sur plusieurs pages. Vous pouvez visualiser les informations
@@ -11,6 +13,7 @@
   </div>
 </template>
 
+<!----------------------------------------Script-------------------------------------------------------------------------------------------------------->
 <script>
 export default {
   name: 'About',
@@ -22,7 +25,7 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+<!----------------------------------------Style--------------------------------------------------------------------------------------------------------->
 <style scoped>
 
 </style>

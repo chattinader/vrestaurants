@@ -1,3 +1,4 @@
+<!----------------------------------------html------------------------------------------------------------------------------------------------------->
 <template>
   <div class="alert alert-warning alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -5,6 +6,7 @@
   </div>
 </template>
 
+<!----------------------------------------Script-------------------------------------------------------------------------------------------------------->
 <script>
   export default {
     name: 'Alert',
@@ -17,7 +19,7 @@
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+<!----------------------------------------Style--------------------------------------------------------------------------------------------------------->
 <style scoped>
 
 </style>

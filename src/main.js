@@ -30,23 +30,18 @@ const router = new VueRouter({
 new Vue({
   router,
   template: `
+    <!--------------------------Nav entête--------------------------------------------------------------------------------------------->
     <div id="app">
         <nav class="navbar navbar-dark fixed bg-dark flex-md-nowrap p-0 shadow">
-            <router-link class="navbar-brand col-sm-3 col-md-2 mr-0" to="/">vRestaurants</router-link>
-            <input class="form-control form-control-dark w-100"
-                style="cursor: not-allowed;
-                pointer-events: none;
-                color: transparent;
-                background-color: transparent;
-                border: none;"
-              >
+            <router-link class="navbar-brand col-sm-3 col-md-10 mr-0" to="/">vRestaurants</router-link>
             <ul class="navbar-nav px-3">
               <li class="nav-item text-nowrap">
                 <router-link class="nav-link" to="/add">Ajouter un restaurant</router-link>
               </li>
             </ul>
         </nav>
-
+        
+        <!--------------------------Nav gauche--------------------------------------------------------------------------------------------->
         <div class="container-solid">
                 <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                     <div class="sidebar-sticky">

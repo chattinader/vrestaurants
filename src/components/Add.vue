@@ -1,5 +1,7 @@
+<!----------------------------------------html------------------------------------------------------------------------------------------------------->
 <template>
   <div class="add container">
+    <!----------------------------------------Formulaire d'ajout restaurant-------------------------------------------->
     <Alert v-if="alert" v-bind:message="alert"></Alert>
     <router-link class="btn" style="border-color: #555; color: #555" to="/">Retour</router-link>
     <h1 class="page-header">Ajouter un restaurant</h1>
@@ -48,6 +50,7 @@
   </div>
 </template>
 
+<!----------------------------------------Script-------------------------------------------------------------------------------------------------------->
 <script>
   import Alert from './Alert'
   export default {
@@ -73,6 +76,7 @@
       }
     },
     methods: {
+      // ----------------------------------Ajout d'un restaurant--------------------------------------------------
       ajouterRestaurant(event) {
         if(!this.nom || !this.cuisine){
           this.alert = "Veuillez remplir les champs obligatoires";
@@ -115,7 +119,7 @@
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+<!----------------------------------------Style--------------------------------------------------------------------------------------------------------->
 <style scoped>
 
 </style>
