@@ -25,7 +25,7 @@
       </li>
       <li class="list-group-item">
         <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-         <b>Coordonnées</b><hr>
+         <b>Map</b><hr>
           <google-map></google-map>
       </li>
     </ul>

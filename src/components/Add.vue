@@ -1,5 +1,5 @@
 <!----------------------------------------html------------------------------------------------------------------------------------------------------->
-<template>
+<template xmlns="http://www.w3.org/1999/html">
   <div class="add container">
     <!----------------------------------------Formulaire d'ajout restaurant-------------------------------------------->
     <Alert v-if="alert" v-bind:message="alert"></Alert>
@@ -78,7 +78,7 @@
     methods: {
       // ----------------------------------Ajout d'un restaurant--------------------------------------------------
       ajouterRestaurant(event) {
-        if(!this.nom || !this.cuisine){
+        if(!this.nom || !this.cuisine || !this.grades.grade || !this.address.building || !this.address.street || !this.address.zipcode || !this.borough){
           this.alert = "Veuillez remplir les champs obligatoires";
         } else {
           let newRestaurant = {
