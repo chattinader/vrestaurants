@@ -1,7 +1,8 @@
 # vrestaurants
 Application VueJS en mode CLI
 Ce site contient une liste de restaurants présentés sous forme d'un tableau sur plusieurs pages.
-Vous pouvez visualiser les informations de chaque restaurant (nom, type de cuisine, classe et adresse).
+Vous pouvez visualiser les informations de chaque restaurant (nom, type de cuisine, classe et adresse), ainsi que
+la position GPS sur une carte GoogleMap.
 Vouv avez la possibilité de soit modifier les informationsd'un restaurant existant,de supprimer
 ou d'ajouter un restaurant.
 Pour rechercher un restaurant dans le tableau il suffit de rentrer le nom de ce dernier dans la barre de recherhce.
