@@ -22,6 +22,11 @@
         <b>Adresse:</b> {{address.building}} {{address.street}}
         {{address.zipcode}}, {{borough}}
       </li>
+      <li class="list-group-item">
+        <span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span>
+         <b>Coordonnées</b><hr>
+          <google-map></google-map>
+      </li>
     </ul>
   </div>
 </template>
@@ -46,9 +51,12 @@
         address: {
           building: 'Indéfini',
           street: '',
-          zipcode: ''
+          zipcode: '',
+          coord: ''
         },
-        borough: ''
+        borough: '',
+        lng: '',
+        lat: ''
       }
     },
     methods: {
@@ -57,7 +65,6 @@
         this.$http.get('http://localhost:8080/api/restaurants/'+id)
           .then(function(response) {
             this.r = JSON.parse(JSON.stringify(response.body.restaurant));
-            console.log(this.r);
             this.name = this.r.name;
             this._id = this.r._id;
             this.cuisine = this.r.cuisine;
@@ -66,6 +73,7 @@
             this.address.street = this.r.address.street;
             this.address.zipcode = this.r.address.zipcode;
             this.borough = this.r.borough;
+            this.address.coord = this.r.address.coord;
           });
         },
       // ----------------------------------Suppression d'un restaurant--------------------------------------------------

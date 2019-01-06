@@ -95,7 +95,7 @@
       },
       // ----------------------------------Modification d'un restaurant-------------------------------------------------
       modifierRestaurant(event) {
-        if(!this.nom || !this.cuisine){
+        if(!this.name || !this.cuisine){
           this.alert = "Veuillez remplir les champs obligatoires";
         } else {
         let modifRestaurant = {

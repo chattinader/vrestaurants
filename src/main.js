@@ -9,8 +9,9 @@ import About from './components/About'
 import Add from './components/Add'
 import Edit from './components/Edit'
 import Details from './components/Details'
+import GoogleMap from './components/GoogleMap'
 
-
+Vue.component('GoogleMap', GoogleMap);
 Vue.use(vueResource)
 Vue.use(VueRouter)
 
