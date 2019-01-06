@@ -2,28 +2,29 @@
 <template>
   <div class="details container">
     <!----------------------------------------Affichage détails restaurant--------------------------------------------->
-    <router-link class="btn" style="border-color: #555; color: #555" to="/">Retour</router-link>
+    <Alert v-if="alert" v-bind:message="alert"/>
+    <router-link class="btn" style="border-color: #555; color: #555" to="/"><span class="glyphicon glyphicon-chevron-left"></span> Retour</router-link>
     <h1 class="page-header">{{name}}
       <span class="pull-right">
-        <router-link class="btn" style="border-color: #555; color: #555" v-bind:to="'/edit/'+r._id">Modifier</router-link>
-        <button class="btn" style="border-color: #555; color: #555" v-on:click="supprimerRestaurant(r._id)">Supprimer</button>
+        <router-link class="btn" style="border-color: #555; color: #555" v-bind:to="'/edit/'+r._id"><span class="glyphicon glyphicon-edit"></span> Modifier</router-link>
+        <button class="btn" style="border-color: #555; color: #555" v-on:click="supprimerRestaurant(r._id)"><span class="glyphicon glyphicon-trash"></span> Supprimer</button>
       </span>
     </h1>
     <ul class="list-group">
       <li class="list-group-item"><span class="glyphicon glyphicon-qrcode" aria-hidden="true"></span> <b>ID:</b> {{_id}}</li>
       <li class="list-group-item"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> <b>Classe:</b> {{grades.grade}}</li>
-      <li class="list-group-item"><span class="glyphicon glyphicon-glass" aria-hidden="true"></span> <b>Cuisine:</b> {{cuisine}}</li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span> <b>Cuisine:</b> {{cuisine}}</li>
     </ul>
 
     <hr>
 
     <ul class="list-group">
-      <li class="list-group-item"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+      <li class="list-group-item"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
         <b>Adresse:</b> {{address.building}} {{address.street}}
         {{address.zipcode}}, {{borough}}
       </li>
       <li class="list-group-item">
-        <span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
          <b>Coordonnées</b><hr>
           <google-map></google-map>
       </li>
@@ -33,30 +34,33 @@
 
 <!----------------------------------------Script--------------------------------------------------------------------------------------------------------->
 <script>
+  import Alert from './Alert'
   export default {
     name: 'Details',
+    components: {Alert},
     data () {
       return {
         r: {
 
         },
-        _id: 'Indéfini',
-        name: 'Indéfini',
-        cuisine: 'Indéfini',
+        _id: '',
+        name: '',
+        cuisine: '',
         grades: {
-          date: 'Indéfini',
-          grade: 'Indéfini',
+          date: '',
+          grade: '',
           score: ''
         },
         address: {
-          building: 'Indéfini',
+          building: '',
           street: '',
           zipcode: '',
           coord: ''
         },
         borough: '',
         lng: '',
-        lat: ''
+        lat: '',
+        alert: ''
       }
     },
     methods: {
@@ -85,7 +89,13 @@
       }
     },
     created: function () {
+      if(this.$route.query.alert) {
+        this.alert = this.$route.query.alert;
+      }
       this.fetchRestaurant(this.$route.params.id);
+    },
+    comments: {
+      Alert
     }
   }
 </script>

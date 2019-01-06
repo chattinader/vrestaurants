@@ -37,7 +37,7 @@ new Vue({
             <router-link class="navbar-brand col-sm-3 col-md-10 mr-0" to="/">vRestaurants</router-link>
             <ul class="navbar-nav px-3">
               <li class="nav-item text-nowrap">
-                <router-link class="nav-link" to="/add">Ajouter un restaurant</router-link>
+                <router-link class="nav-link" to="/add"><span class="glyphicon glyphicon-plus"></span> Ajouter un restaurant</router-link>
               </li>
             </ul>
         </nav>
@@ -49,14 +49,14 @@ new Vue({
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <router-link class="nav-link active" style="color: #555" to="/">
-                                    <span data-feather="home"></span>
-                                    Accueil <span class="sr-only">(current)</span>
+                                    <span class="glyphicon glyphicon-home" data-feather="home"></span>
+                                     Accueil <span class="sr-only">(current)</span>
                                 </router-link>
                             </li>
                             <li class="nav-item">
                                 <router-link class="nav-link" style="color: #555" to="/about">
-                                    <span data-feather="file"></span>
-                                    A propos
+                                    <span class="glyphicon glyphicon-info-sign" data-feather="file"></span>
+                                     A propos
                                 </router-link>
                             </li>
                         </ul>

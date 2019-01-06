@@ -20,47 +20,47 @@
 
         <!----------------------------------------Boutons de selection des pages--------------------------------------->
         <div style="padding-bottom: 10px; text-align: center;">
-        <button class="btn" style="border-color: #555; color: #555"
+        <button class="btn" style="border-color: transparent; color: #555"
                 v-bind:class="{invisible: this.page === 0}"
                 v-on:click="premierePage()"
-        > ▐◄ </button>
-        <button class="btn" style="border-color: #555; color: #555"
+        ><span class="glyphicon glyphicon-chevron-left"></span><span class="glyphicon glyphicon-chevron-left"></span></button>
+        <button class="btn" style="border-color: transparent; color: #555"
                 v-bind:class="{invisible: (this.page === 0)}"
                 v-on:click="pagePrecedente()"
-        > ◄ </button>
-        <button class="btn" style="border-color: #555; color: #555"
+        ><span class="glyphicon glyphicon-chevron-left"></span></button>
+        <button class="btn" style="border-color: transparent; color: #555"
                 v-bind:class="{invisible: ((this.page + 1) <= 3)}"
                 v-on:click="selectionPage(-3)"
         >{{this.page - 2}}</button>
-        <button class="btn" style="border-color: #555; color: #555"
+        <button class="btn" style="border-color: transparent; color: #555"
                 v-bind:class="{invisible: ((this.page + 1) <= 2)}"
                 v-on:click="selectionPage(-2)"
         >{{this.page - 1}}</button>
-        <button class="btn" style="border-color: #555; color: #555"
+        <button class="btn" style="border-color: transparent; color: #555"
                 v-bind:class="{invisible: ((this.page + 1) <= 1)}"
                 v-on:click="selectionPage(-1)"
         >{{this.page}}</button>
-        <a>Page: {{this.page + 1}}</a>
-        <button class="btn" style="border-color: #555; color: #555"
+        <a class="btn" style="border-color: #555">Page: {{this.page + 1}}</a>
+        <button class="btn" style="border-color: transparent; color: #555"
                 v-bind:class="{invisible: ((this.page + 1) > (nbPagesDeResultats -1))}"
                 v-on:click="selectionPage(1)"
         >{{this.page + 2}}</button>
-        <button class="btn" style="border-color: #555; color: #555"
+        <button class="btn" style="border-color: transparent; color: #555"
                 v-bind:class="{invisible: ((this.page + 2) > (nbPagesDeResultats -1))}"
                 v-on:click="selectionPage(2)"
         >{{this.page + 3}}</button>
-        <button class="btn" style="border-color: #555; color: #555"
+        <button class="btn" style="border-color: transparent; color: #555"
                 v-bind:class="{invisible: ((this.page + 3) > (nbPagesDeResultats -1))}"
                 v-on:click="selectionPage(3)"
         >{{this.page + 4}}</button>
-        <button class="btn" style="border-color: #555; color: #555"
+        <button class="btn" style="border-color: transparent; color: #555"
                 v-bind:class="{invisible: (this.page === (nbPagesDeResultats -1))}"
                 v-on:click="pageSuivante()"
-        > ► </button>
-        <button class="btn" style="border-color: #555; color: #555"
+        ><span class="glyphicon glyphicon-chevron-right"></span></button>
+        <button class="btn" style="border-color: transparent; color: #555"
                 v-bind:class="{invisible: (this.page === (nbPagesDeResultats -1))}"
                 v-on:click="dernierePage()"
-        > ►▌ </button>
+        ><span class="glyphicon glyphicon-chevron-right"></span><span class="glyphicon glyphicon-chevron-right"></span></button>
        </div>
         <!----------------------------------------Tableau des restaurants---------------------------------------------->
         <table class="table table-hover">
@@ -75,7 +75,7 @@
                 <tr v-for="r in restaurants">
                     <td>{{r.name}}</td>
                     <td>{{r.cuisine}}</td>
-                    <td><router-link class="btn" style="border-color: #555; color: #555" v-bind:to="'/restaurants/'+r._id">Détails</router-link></td>
+                    <td><router-link class="btn" style="border-color: #555; color: #555" v-bind:to="'/restaurants/'+r._id"><span class="glyphicon glyphicon-list-alt"></span> Détails</router-link></td>
                 </tr>
             </tbody>
         </table>

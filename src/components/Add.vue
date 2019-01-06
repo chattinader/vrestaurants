@@ -3,7 +3,7 @@
   <div class="add container">
     <!----------------------------------------Formulaire d'ajout restaurant-------------------------------------------->
     <Alert v-if="alert" v-bind:message="alert"></Alert>
-    <router-link class="btn" style="border-color: #555; color: #555" to="/">Retour</router-link>
+    <router-link class="btn" style="border-color: #555; color: #555" to="/"><span class="glyphicon glyphicon-chevron-left"></span> Retour</router-link>
     <h1 class="page-header">Ajouter un restaurant</h1>
     <form v-on:submit="ajouterRestaurant">
       <br>
@@ -44,7 +44,7 @@
             <input type="text" class="form-control" v-model="address.zipcode" placeholder="Code postal">
           </div>
         </div>
-        <button type="submit" class="btn" style="border-color: #555; color: #555">Ajouter</button>
+        <button type="submit" class="btn" style="border-color: #555; color: #555"><span class="glyphicon glyphicon-ok"></span> Ajouter</button>
       </div>
     </form>
   </div>
@@ -58,7 +58,7 @@
     data () {
       return {
         r: {
-      },
+        },
         nom:'',
         cuisine: '',
         address:{
@@ -103,7 +103,6 @@
           newRestaurant.address.street = this.address.street;
           newRestaurant.address.zipcode = this.address.zipcode;
           newRestaurant.borough = this.borough;
-
           this.$http.post('http://localhost:8080/api/restaurants', newRestaurant)
             .then(function (response) {
               this.$router.push({path: '/', query: { alert: 'Restaurant ajouté'}});
@@ -121,5 +120,4 @@
 
 <!----------------------------------------Style--------------------------------------------------------------------------------------------------------->
 <style scoped>
-
 </style>

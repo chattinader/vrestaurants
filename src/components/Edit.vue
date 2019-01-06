@@ -3,7 +3,7 @@
   <div class="edit container">
     <!----------------------------------------Formulaire modification restaurant--------------------------------------->
     <Alert v-if="alert" v-bind:message="alert"></Alert>
-    <router-link class="btn" style="border-color: #555; color: #555" v-bind:to="'/restaurants/'+r._id">Retour</router-link>
+    <router-link class="btn" style="border-color: #555; color: #555" v-bind:to="'/restaurants/'+r._id"><span class="glyphicon glyphicon-chevron-left"></span> Retour</router-link>
     <h1 class="page-header">Modifier un restaurant</h1>
     <form v-on:submit="modifierRestaurant">
       <br>
@@ -44,7 +44,7 @@
             <input type="text" class="form-control" v-model="address.zipcode" placeholder="Code postal">
           </div>
         </div>
-        <button type="submit" class="btn" style="border-color: #555; color: #555">Modifier</button>
+        <button type="submit" class="btn" style="border-color: #555; color: #555"><span class="glyphicon glyphicon-ok"></span> Modifier</button>
       </div>
     </form>
   </div>
@@ -60,16 +60,16 @@
         r: {
 
         },
-        _id: 'Indéfini',
-        name: 'Indéfini',
-        cuisine: 'Indéfini',
+        _id: '',
+        name: '',
+        cuisine: '',
         grades: {
-          date: 'Indéfini',
-          grade: 'Indéfini',
+          date: '',
+          grade: '',
           score: ''
         },
         address: {
-          building: 'Indéfini',
+          building: '',
           street: '',
           zipcode: ''
         },
@@ -124,7 +124,7 @@
 
         this.$http.put('http://localhost:8080/api/restaurants/' + this._id, modifRestaurant)
           .then(function (response) {
-            this.$router.push({path: '/', query: { alert: 'Restaurant modifié'}});
+            this.$router.push({path: '/restaurants/' + this._id + '/', query: { alert: 'Restaurant modifié'}});
           });
         event.preventDefault();
         }
