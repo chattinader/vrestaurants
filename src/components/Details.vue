@@ -60,7 +60,12 @@
         borough: '',
         lng: '',
         lat: '',
-        alert: ''
+        alert: '',
+        menu: {
+          entree: '',
+          plat: '',
+          dessert: ''
+        }
       }
     },
     methods: {

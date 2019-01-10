@@ -10,6 +10,16 @@
     <p>Pour rechercher un restaurant dans le tableau il suffit de rentrer le nom de ce dernier dans la barre de recherhce.</p>
     <hr>
     <h5>Ce Site est une application <b>VueJS</b> développée en <b>Mode CLI.</b></h5>
+    <footer class="footer navbar-fixed-bottom text-secondary" style="margin-left: 21%; opacity: 0.7">
+      <hr>
+      <label class="col-md-4">Développeur</label>
+      <label class="col-md-4">Université</label>
+      <label class="col-md-4">Promo</label>
+
+      <label class="col-md-4">CHATTI Nader</label>
+      <label class="col-md-4">Université de Nice Sophia Antipolis</label>
+      <label class="col-md-4">M1 MIAGE 2018/2019</label>
+    </footer>
   </div>
 </template>
 

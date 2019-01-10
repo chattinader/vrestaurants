@@ -22,3 +22,7 @@ l'application (localhost:8081)
 
 !!Important!!
 lancer le serveur en premier puis l'application pour ne pas créer un confusion sur les ports
+
+-------------A propos----------------------------------------------------------------------------------------------
+Développeur			Université					Promo
+CHATTI Nader			Université de Nice Sophia Antipolis		M1 MIAGE 2018/2019
